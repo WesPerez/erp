@@ -306,7 +306,7 @@ export default {
           id: 1,
           username: 'admin',
           name: '系统管理员',
-          email: 'admin@opencode.com',
+          email: 'admin@erp.com',
           phone: '13800138000',
           department: '技术部',
           position: '技术总监',

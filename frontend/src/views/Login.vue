@@ -188,36 +188,50 @@ export default {
   position: relative;
   overflow: hidden;
   padding: 20px;
+  font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .login-container::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(30, 58, 95, 0.88) 100%);
   z-index: 0;
 }
 
+/* 噪点纹理 */
+.login-container::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
 
 /* 背景动画 */
 .bg-animation {
   position: absolute;
   inset: 0;
   overflow: hidden;
+  z-index: 0;
 }
 
 .gradient-circle {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.5;
+  opacity: 0.4;
   animation: float 20s infinite ease-in-out;
 }
 
 .circle-1 {
   width: 600px;
   height: 600px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
   top: -200px;
   left: -200px;
   animation-delay: 0s;
@@ -226,7 +240,7 @@ export default {
 .circle-2 {
   width: 500px;
   height: 500px;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #2d4a6f 0%, #1a365d 100%);
   bottom: -150px;
   right: -150px;
   animation-delay: -5s;
@@ -235,7 +249,7 @@ export default {
 .circle-3 {
   width: 400px;
   height: 400px;
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a5f 100%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -266,8 +280,10 @@ export default {
   backdrop-filter: blur(20px);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   position: relative;
   z-index: 1;
 }
@@ -275,7 +291,7 @@ export default {
 /* 左侧品牌区 */
 .brand-section {
   flex: 1;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
   padding: 60px 40px;
   display: flex;
   align-items: center;
@@ -296,7 +312,7 @@ export default {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 58, 95, 0.92) 100%);
 }
 
 .brand-content {
@@ -329,6 +345,7 @@ export default {
   font-size: 32px;
   font-weight: 700;
   margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -360,8 +377,8 @@ export default {
 /* 右侧表单区 */
 .form-section {
   flex: 1;
-  padding: 60px 50px;
-  background: rgba(255, 255, 255, 0.95);
+  padding: 64px 52px;
+  background: rgba(255, 254, 252, 0.97);
 }
 
 .form-container {
@@ -377,13 +394,14 @@ export default {
 .form-header h2 {
   font-size: 28px;
   font-weight: 700;
-  color: #1a1a2e;
+  color: #0f172a;
   margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
 }
 
 .form-header p {
   font-size: 14px;
-  color: #666;
+  color: #64748b;
   margin: 0;
 }
 
@@ -393,16 +411,22 @@ export default {
 
 .login-form :deep(.el-input__wrapper) {
   border-radius: 12px;
-  box-shadow: 0 0 0 1px #e0e0e0 inset;
+  box-shadow: 0 0 0 1px #e2e8f0 inset;
   padding: 4px 12px;
+  transition: box-shadow 200ms ease;
 }
 
 .login-form :deep(.el-input__wrapper:hover) {
-  box-shadow: 0 0 0 1px #667eea inset;
+  box-shadow: 0 0 0 1px #2563eb inset;
 }
 
 .login-form :deep(.el-input__wrapper.is-focus) {
-  box-shadow: 0 0 0 1px #667eea inset;
+  box-shadow: 0 0 0 1px #2563eb inset;
+}
+
+.login-form :deep(.el-input__wrapper:focus-visible) {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .login-form :deep(.el-input__inner) {
@@ -417,18 +441,19 @@ export default {
 }
 
 .form-options :deep(.el-checkbox__label) {
-  color: #666;
+  color: #64748b;
 }
 
 .forgot-link {
   font-size: 14px;
-  color: #667eea;
+  color: #2563eb;
   text-decoration: none;
   font-weight: 500;
+  transition: color 200ms ease;
 }
 
 .forgot-link:hover {
-  text-decoration: underline;
+  color: #1e40af;
 }
 
 .login-btn {
@@ -437,14 +462,23 @@ export default {
   border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
   border: none;
-  transition: all 0.3s ease;
+  transition: all 200ms ease;
 }
 
 .login-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+}
+
+.login-btn:active {
+  transform: scale(0.98);
+}
+
+.login-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .error-tip {
@@ -455,20 +489,21 @@ export default {
 .form-footer {
   text-align: center;
   padding-top: 24px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #e2e8f0;
   font-size: 14px;
-  color: #666;
+  color: #64748b;
 }
 
 .form-footer a {
-  color: #667eea;
+  color: #2563eb;
   text-decoration: none;
   font-weight: 600;
   margin-left: 6px;
+  transition: color 200ms ease;
 }
 
 .form-footer a:hover {
-  text-decoration: underline;
+  color: #1e40af;
 }
 
 /* 响应式 */
@@ -477,27 +512,27 @@ export default {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .brand-section {
     padding: 40px 30px;
   }
-  
+
   .logo-icon {
     font-size: 36px;
   }
-  
+
   .logo-text {
     font-size: 24px;
   }
-  
+
   .brand-title {
     font-size: 24px;
   }
-  
+
   .form-section {
     padding: 40px 30px;
   }
-  
+
   .form-header h2 {
     font-size: 24px;
   }

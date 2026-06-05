@@ -3,7 +3,7 @@
 #PQ|    <!-- 侧边栏头部 -->
 #MX|    <div class="menu-header">
 #BM|      <img src="/assets/images/logo.png" alt="Logo" class="header-logo" />
-#HB|      <span class="header-title">OpenCode</span>
+#HB|      <span class="header-title">ERP</span>
 #NK|    </div>
 #KM|    <ul class="menu-list">
   <nav class="side-menu">

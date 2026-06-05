@@ -390,30 +390,24 @@ export default {
 }
 
 /* 整体布局 */
-
-/* 整体布局 */
-
-
-/* 整体布局 */
-/* 整体布局 */
 .dashboard {
   display: flex;
   height: 100vh;
   overflow: hidden;
-  background: #f5f7fa;
+  background: #fafbfc;
 }
 
 /* 侧边栏 */
 .sidebar {
   width: 220px;
   min-width: 220px;
-  background: #fff;
+  background: #fafbfc;
   display: flex;
   flex-direction: column;
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 2px 0 8px rgba(37, 99, 235, 0.06);
   position: relative;
   z-index: 10;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidebar.collapsed {
@@ -421,7 +415,7 @@ export default {
   min-width: 64px;
 }
 
-/* 品牌标识 - 与右侧topbar对齐 */
+/* 品牌标识 */
 .brand {
   display: flex;
   align-items: center;
@@ -435,7 +429,7 @@ export default {
 
 .brand-icon {
   font-size: 22px;
-  color: #409EFF;
+  color: #2563eb;
   flex-shrink: 0;
 }
 
@@ -458,6 +452,29 @@ export default {
   width: 220px;
 }
 
+/* 菜单项左侧激活指示条 */
+:deep(.el-menu-item.is-active) {
+  border-left: 3px solid #2563eb;
+}
+
+/* 侧边栏滚动条 */
+.sidebar-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.sidebar-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 /* 侧边栏底部 */
 .sidebar-footer {
   padding: 12px 16px;
@@ -477,12 +494,16 @@ export default {
   border-radius: 4px;
   color: #606266;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logout-btn:hover {
-  color: #409EFF;
-  border-color: #409EFF;
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+.logout-btn:active {
+  transform: scale(0.98);
 }
 
 /* 折叠按钮 */
@@ -493,7 +514,7 @@ export default {
   left: 220px;
   width: 20px;
   height: 48px;
-  background: #fff;
+  background: #fafbfc;
   border: 1px solid #e4e7ed;
   border-left: none;
   color: #909399;
@@ -501,7 +522,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 20;
   border-radius: 0 8px 8px 0;
 }
@@ -511,9 +532,14 @@ export default {
 }
 
 .sidebar-toggle:hover {
-  background: #409EFF;
+  background: #2563eb;
   color: #fff;
-  border-color: #409EFF;
+  border-color: #2563eb;
+}
+
+.sidebar-toggle:active {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
 }
 
 /* 主内容区 */
@@ -522,9 +548,9 @@ export default {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: #f5f7fa;
+  background: #fafbfc;
   margin-left: 0;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* 顶部栏 */
@@ -532,11 +558,11 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
+  padding: 0 28px;
   height: 56px;
   box-sizing: border-box;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #ebeef5;
   flex-shrink: 0;
 }
 
@@ -599,11 +625,16 @@ export default {
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 6px;
-  transition: background 0.2s;
+  transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .user-info:hover {
-  background: #f5f7fa;
+  background: #f0f2f5;
+}
+
+.user-info:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .user-name {
@@ -619,12 +650,16 @@ export default {
   padding: 20px;
   overflow-y: auto;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* 页面切换动画 */
-.page-fade-enter-active,
+.page-fade-enter-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .page-fade-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-fade-enter-from {
@@ -665,7 +700,7 @@ export default {
 }
 
 .notify-item .el-icon.task {
-  color: #409EFF;
+  color: #2563eb;
 }
 
 .notify-item .el-icon.notice {

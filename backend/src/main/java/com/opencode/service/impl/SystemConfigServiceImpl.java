@@ -23,8 +23,8 @@ public class SystemConfigServiceImpl implements SystemConfigService {
         }
         // 返回默认配置
         SystemConfig defaultConfig = new SystemConfig();
-        defaultConfig.setSystemName("OpenCode 企业管理系统");
-        defaultConfig.setCopyright("© 2024 OpenCode. All rights reserved.");
+        defaultConfig.setSystemName("ERP 企业管理系统");
+        defaultConfig.setCopyright("© 2024 ERP. All rights reserved.");
         defaultConfig.setLoginTimeout(30);
         defaultConfig.setPasswordExpire(90);
         defaultConfig.setMaxLoginFail(5);

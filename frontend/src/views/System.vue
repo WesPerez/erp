@@ -285,8 +285,8 @@ export default {
   setup() {
     const systemInfo = ref({})
     const config = ref({
-      systemName: 'OpenCode 企业管理系统',
-      copyright: '© 2024 OpenCode. All rights reserved.',
+      systemName: 'ERP 企业管理系统',
+      copyright: '© 2024 ERP. All rights reserved.',
       loginTimeout: 30,
       passwordExpire: 90,
       maxLoginFail: 5,
@@ -320,8 +320,8 @@ export default {
         const configRes = await systemApi.getConfig()
         if (configRes.code === 200 && configRes.data) {
           config.value = {
-            systemName: configRes.data.systemName || 'OpenCode 企业管理系统',
-            copyright: configRes.data.copyright || '© 2024 OpenCode. All rights reserved.',
+            systemName: configRes.data.systemName || 'ERP 企业管理系统',
+            copyright: configRes.data.copyright || '© 2024 ERP. All rights reserved.',
             loginTimeout: configRes.data.loginTimeout || 30,
             passwordExpire: configRes.data.passwordExpire || 90,
             maxLoginFail: configRes.data.maxLoginFail || 5,
@@ -332,8 +332,8 @@ export default {
         console.error('获取系统配置失败:', error)
         // 使用默认配置
         config.value = {
-          systemName: 'OpenCode 企业管理系统',
-          copyright: '© 2024 OpenCode. All rights reserved.',
+          systemName: 'ERP 企业管理系统',
+          copyright: '© 2024 ERP. All rights reserved.',
           loginTimeout: 30,
           passwordExpire: 90,
           maxLoginFail: 5,

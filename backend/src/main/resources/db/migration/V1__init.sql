@@ -179,8 +179,8 @@ CREATE TABLE IF NOT EXISTS sys_report (
 -- 系统配置表
 CREATE TABLE IF NOT EXISTS sys_system_config (
     id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '配置ID',
-    system_name VARCHAR(100) DEFAULT 'OpenCode 企业管理系统' COMMENT '系统名称',
-    copyright VARCHAR(255) DEFAULT '© 2024 OpenCode' COMMENT '版权信息',
+    system_name VARCHAR(100) DEFAULT 'ERP 企业管理系统' COMMENT '系统名称',
+    copyright VARCHAR(255) DEFAULT '© 2024 ERP' COMMENT '版权信息',
     login_timeout INT DEFAULT 30 COMMENT '登录超时',
     password_expire INT DEFAULT 90 COMMENT '密码过期天数',
     max_login_fail INT DEFAULT 5 COMMENT '最大登录失败次数',
@@ -215,10 +215,10 @@ CREATE TABLE IF NOT EXISTS sys_todo (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='待办事项表';
 
 -- 插入默认系统配置
-INSERT INTO sys_system_config (system_name, copyright, login_timeout, password_expire, max_login_fail, max_devices) VALUES ('OpenCode 企业管理系统', '© 2024 OpenCode', 30, 90, 5, 3);
+INSERT INTO sys_system_config (system_name, copyright, login_timeout, password_expire, max_login_fail, max_devices) VALUES ('ERP 企业管理系统', '© 2024 ERP', 30, 90, 5, 3);
 
 -- 插入用户
-INSERT INTO sys_user (username, password, name, email, phone, department, role, status) VALUES ('admin', 'password', '系统管理员', 'admin@opencode.com', '13800138000', '技术部', 'ADMIN', 1), ('zhangsan', 'password', '张三', 'zhangsan@opencode.com', '13800138001', '产品部', 'USER', 1), ('lisi', 'password', '李四', 'lisi@opencode.com', '13800138002', '开发部', 'EDITOR', 1), ('wangwu', 'password', '王五', 'wangwu@opencode.com', '13800138003', '测试部', 'USER', 1), ('zhaoliu', 'password', '赵六', 'zhaoliu@opencode.com', '13800138004', '运维部', 'USER', 1), ('qianqi', 'password', '钱七', 'qianqi@opencode.com', '13800138005', '设计部', 'USER', 1);
+INSERT INTO sys_user (username, password, name, email, phone, department, role, status) VALUES ('admin', 'password', '系统管理员', 'admin@erp.com', '13800138000', '技术部', 'ADMIN', 1), ('zhangsan', 'password', '张三', 'zhangsan@erp.com', '13800138001', '产品部', 'USER', 1), ('lisi', 'password', '李四', 'lisi@erp.com', '13800138002', '开发部', 'EDITOR', 1), ('wangwu', 'password', '王五', 'wangwu@erp.com', '13800138003', '测试部', 'USER', 1), ('zhaoliu', 'password', '赵六', 'zhaoliu@erp.com', '13800138004', '运维部', 'USER', 1), ('qianqi', 'password', '钱七', 'qianqi@erp.com', '13800138005', '设计部', 'USER', 1);
 
 -- 插入角色
 INSERT INTO sys_role (name, code, description, user_count) VALUES ('超级管理员', 'SUPER_ADMIN', '拥有系统所有权限', 1), ('系统管理员', 'ADMIN', '管理系统配置和用户权限', 3), ('产品经理', 'PRODUCT_MANAGER', '负责产品规划', 5), ('开发工程师', 'DEVELOPER', '负责系统开发', 25), ('测试工程师', 'TESTER', '负责系统测试', 12), ('运维工程师', 'OPERATOR', '负责系统运维', 8), ('内容编辑', 'EDITOR', '负责内容编辑', 15), ('普通用户', 'USER', '普通访问权限', 150);
